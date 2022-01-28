@@ -15,8 +15,9 @@ dependencies {
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     implementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
 
-// https://mvnrepository.com/artifact/org.apache.commons/commons-csv
-    implementation group: 'org.apache.commons', name: 'commons-csv', version: '1.5'
+// https://mvnrepository.com/artifact/com.opencsv/opencsv
+    implementation group: 'com.opencsv', name: 'opencsv', version: '5.5.2'
+
 
 }
 

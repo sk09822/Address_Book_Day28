@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import com.opencsv.CSVWriter;
 
 public class FileHandling {
     public void createFile() {
@@ -57,7 +58,7 @@ public class FileHandling {
 
         // Instantiating the CSVWriter class
         CSVWriter writer = new CSVWriter(new FileWriter("AddrBookFile.csv"));
-        String line[] = { "AddressBook Name", "First Name", "Last Name", "Address", "City", "State", "Phone Number",
+        String line[] = { "AddressBook Name", "First Name", "Last Name", "Address", "City", "State", "Pone Number",
                 "E-mail", "Zip" };
         List contactList = new ArrayList();
         contactList.add(line);
