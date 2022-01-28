@@ -24,7 +24,8 @@ public class AddressBookMainClass {
         System.out.println("Enter your choice");
         System.out.println(
                 "1 : Add new contact    2 : Edit contact  3 : Delete contact  4: Add Multiple Contacts 5: Display Contacts 6: Search Person 7: Person with City and State"
-                        + " 8: Count person by city and state 9: Sorted Person's by alphabetically in Address Book 10: Sorted Person's by alphabetically by City State And Zip Code");
+                        + " 8: Count person by city and state 9: Sorted Person's by alphabetically in Address Book 10: Sorted Person's by alphabetically by City State And Zip Code"
+                        + "11: write the addressbook with persons contact into text file ");
         int choice = sc.nextInt();
         switch (choice) {
             case 1:
@@ -141,7 +142,12 @@ public class AddressBookMainClass {
             case 10:
                 addressbooks.sortEntriesInAddressBookByCitySateAndZip();
                 addressbooks.addContacts();
-
+                break;
+            case 11:
+                FileHandling fileHandling = new FileHandling();
+                fileHandling.createFile();
+                fileHandling.writeContactToFile(addressBookSystem);
+                addressbooks.addContacts();
                 break;
             default:
                 System.out.println("Please Enter correct choice");
