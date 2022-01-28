@@ -22,7 +22,7 @@ public class AddressBookMainClass {
 
         System.out.println("Enter your choice");
         System.out.println(
-                "1 : Add new contact    2 : Edit contact  3 : Delete contact  4: Add Multiple Contacts 5: Display Contacts 6: Search Person");
+                "1 : Add new contact    2 : Edit contact  3 : Delete contact  4: Add Multiple Contacts 5: Display Contacts 6: Search Person 7: Person with City and State");
         int choice = sc.nextInt();
         switch (choice) {
             case 1:
@@ -124,6 +124,10 @@ public class AddressBookMainClass {
                 addressbooks.searchPerson(cityname, statename);
                 addressbooks.addContacts();
                 break;
+            case 7:
+                viewCityAndPersonAsWellAsStateAndPesron();
+                addressbooks.addContacts();
+                break;
             default:
                 System.out.println("Please Enter correct choice");
         }
@@ -162,7 +166,6 @@ public class AddressBookMainClass {
     public void displayContacts(Map<String, AddressBook> addressBookSystem) {
 
         for (Map.Entry<String, AddressBook> set : addressBookSystem.entrySet()) {
-
             AddressBook values = set.getValue();
             List<Contact> contactDetails = values.getContacts();
 
@@ -303,6 +306,20 @@ public class AddressBookMainClass {
                 System.out.println("This peson not present in this city or state");
             }
 
+        }
+    }
+
+    public void viewCityAndPersonAsWellAsStateAndPesron() {
+        List<Contact> contactsList = new ArrayList<>();
+        for (Map.Entry<String, AddressBook> set : addressBookSystem.entrySet()) {
+            AddressBook addressBook = set.getValue();
+            contactsList = addressBook.getContacts();
+            System.out.println("Person Name and His/her city");
+            contactsList.stream()
+                    .forEachOrdered(con -> System.out.println(con.getFirstName() + "     " + con.getCity()));
+            System.out.println("Person Name and His/her State");
+            contactsList.stream()
+                    .forEachOrdered(con -> System.out.println(con.getFirstName() + "     " + con.getState()));
         }
 
     }
